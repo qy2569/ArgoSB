@@ -34,7 +34,7 @@ export ippz=${ippz:-''}
 export warp=${warp:-''}
 export name=${name:-''}
 v46url="https://icanhazip.com"
-agsburl="https://github.com/qy2569/ArgoSB/blob/main/argosb.sh"
+agsburl="https://raw.githubusercontent.com/qy2569/ArgoSB/refs/heads/main/argosb.sh"
 showmode(){
 echo "ArgoSB脚本项目地址：https://github.com/yonggekkk/ArgoSB"
 echo "主脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh) 或 bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)"
