@@ -897,9 +897,18 @@ fi
 if grep reality-vision "$HOME/agsb/xr.json" >/dev/null 2>&1; then
 echo "💣【 vless-reality-vision 】节点信息如下："
 port_vl_re=$(cat "$HOME/agsb/port_vl_re")
-vl_link="vless://$uuid@$server_ip:$port_vl_re?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$ym_vl_re&fp=chrome&pbk=$public_key_x&sid=$short_id_x&type=tcp&headerType=none#${sxname}vl-reality-vision-$hostname"
-echo "$vl_link" >> "$HOME/agsb/jh.txt"
-echo "$vl_link"
+# --- 生成 IPv4 版本 (如果 IPv4 存在) ---
+if [ -n "$v4" ]; then
+  vl_link_v4="vless://$uuid@$v4:$port_vl_re?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$ym_vl_re&fp=chrome&pbk=$public_key_x&sid=$short_id_x&type=tcp&headerType=none#${sxname}reality-vision-v4-$hostname"
+  echo "$vl_link_v4" >> "$HOME/agsb/jh.txt"
+  echo "$vl_link_v4"
+fi
+# --- 生成 IPv6 版本 (如果 IPv6 存在) ---
+if [ -n "$v6" ]; then
+  vl_link_v6="vless://$uuid@[$v6]:$port_vl_re?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$ym_vl_re&fp=chrome&pbk=$public_key_x&sid=$short_id_x&type=tcp&headerType=none#${sxname}reality-vision-v6-$hostname"
+  echo "$vl_link_v6" >> "$HOME/agsb/jh.txt"
+  echo "$vl_link_v6"
+fi
 echo
 fi
 if grep ss-2022 "$HOME/agsb/xr.json" >/dev/null 2>&1; then
@@ -945,9 +954,18 @@ fi
 if grep hy2-sb "$HOME/agsb/sb.json" >/dev/null 2>&1; then
 echo "💣【 Hysteria2 】节点信息如下："
 port_hy2=$(cat "$HOME/agsb/port_hy2")
-hy2_link="hysteria2://$uuid@$server_ip:$port_hy2?security=tls&alpn=h3&insecure=1&sni=www.bing.com#${sxname}hy2-$hostname"
-echo "$hy2_link" >> "$HOME/agsb/jh.txt"
-echo "$hy2_link"
+# --- 生成 IPv4 版本 (如果 IPv4 存在) ---
+if [ -n "$v4" ]; then
+  hy2_link_v4="hysteria2://$uuid@$v4:$port_hy2?security=tls&alpn=h3&insecure=1&sni=www.bing.com#${sxname}hy2-v4-$hostname"
+  echo "$hy2_link_v4" >> "$HOME/agsb/jh.txt"
+  echo "$hy2_link_v4"
+fi
+# --- 生成 IPv6 版本 (如果 IPv6 存在) ---
+if [ -n "$v6" ]; then
+  hy2_link_v6="hysteria2://$uuid@[$v6]:$port_hy2?security=tls&alpn=h3&insecure=1&sni=www.bing.com#${sxname}hy2-v6-$hostname"
+  echo "$hy2_link_v6" >> "$HOME/agsb/jh.txt"
+  echo "$hy2_link_v6"
+fi
 echo
 fi
 if grep tuic5-sb "$HOME/agsb/sb.json" >/dev/null 2>&1; then
