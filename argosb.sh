@@ -574,6 +574,18 @@ sed -i '${s/,\s*$//}' "$HOME/agsb/xr.json"
 cat >> "$HOME/agsb/xr.json" <<EOF
   ],
   "outbounds": [
+  {
+      "protocol": "socks",
+      "settings": {
+        "servers": [
+          {
+            "address": "127.0.0.1",
+            "port": 40000
+          }
+        ]
+      },
+      "tag": "google-warp-socks"
+    },
     {
       "protocol": "freedom",
       "tag": "direct",
@@ -617,6 +629,16 @@ cat >> "$HOME/agsb/xr.json" <<EOF
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
+    {
+        "type": "field",
+        "inboundTag": [
+          "vmess-xr"
+        ],
+        "geosite": [
+          "google"
+        ],
+        "outboundTag": "google-warp-socks"
+      },
       {
         "type": "field",
         "ip": [ ${xip} ],
