@@ -629,16 +629,16 @@ cat >> "$HOME/agsb/xr.json" <<EOF
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
-    {
-        "type": "field",
-        "inboundTag": [
-          "vmess-xr"
-        ],
-        "geosite": [
-          "google"
-        ],
-        "outboundTag": "google-warp-socks"
-      },
+#    {
+#       "type": "field",
+#        "inboundTag": [
+#          "vmess-xr"
+#        ],
+#        "geosite": [
+#          "google"
+#        ],
+#        "outboundTag": "google-warp-socks"
+#      },
       {
         "type": "field",
         "ip": [ ${xip} ],
