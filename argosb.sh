@@ -765,7 +765,7 @@ url="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudfla
 chmod +x "$HOME/agsb/cloudflared"
 fi
 if [ -n "${ARGO_DOMAIN}" ] && [ -n "${ARGO_AUTH}" ]; then
-name='固定'
+name=''
 nohup "$HOME/agsb/cloudflared" tunnel --no-autoupdate --edge-ip-version auto --protocol http2 run --token "${ARGO_AUTH}" >/dev/null 2>&1 &
 echo "${ARGO_DOMAIN}" > "$HOME/agsb/sbargoym.log"
 echo "${ARGO_AUTH}" > "$HOME/agsb/sbargotoken.log"
